@@ -37,7 +37,18 @@ use yii\jui\DatePicker;
 
                         <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-                        <?= $form->field($model, 'content')->widget(TinyMce::className()); ?>
+                        <?= $form->field($model, 'content')->widget(TinyMce::className(), [
+                            'clientOptions' => [
+                                'forced_root_block' => '',
+                                'menubar' => false,
+                                'height' => 300,
+                                'image_dimensions' => true,
+                                'plugins' => [
+                                    'advlist autolink lists link image charmap print preview anchor searchreplace visualblocks code contextmenu table wordcount pagebreak',
+                                ],
+                                'toolbar' => 'undo redo | styleselect bold italic | alignleft aligncenter alignright alignjustify bullist numlist outdent indent | pagebreak link image table | code',
+                            ]
+                        ]); ?>
 
                     </div>
                 </div>
