@@ -68,8 +68,8 @@ class m150630_121101_create_post_table extends Migration
         $this->createIndex('post_category_id', self::POST_TABLE, 'category_id');
         $this->createIndex('post_status', self::POST_TABLE, 'status');
         $this->addForeignKey('fk_post_category_id', self::POST_TABLE, 'category_id', self::POST_CATEGORY_TABLE, 'id', 'SET NULL', 'CASCADE');
-        $this->addForeignKey('fk_page_created_by', self::POST_TABLE, 'created_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
-        $this->addForeignKey('fk_page_updated_by', self::POST_TABLE, 'updated_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
+        $this->addForeignKey('fk_post_created_by', self::POST_TABLE, 'created_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
+        $this->addForeignKey('fk_post_updated_by', self::POST_TABLE, 'updated_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
         
         $this->createTable(self::POST_LANG_TABLE, [
             'id' => $this->primaryKey(),
