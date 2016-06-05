@@ -221,10 +221,10 @@ class Post extends ActiveRecord implements OwnerAccess
         $this->updateCounters(['revision' => 1]);
     }
 
-    public function getShortContent($delimiter = '<!-- pagebreak -->')
+    public function getShortContent($delimiter = '<!-- pagebreak -->', $allowableTags = '<a>')
     {
         $content = explode($delimiter, $this->content);
-        return strip_tags($content[0]);
+        return strip_tags($content[0], $allowableTags); 
     }
 
     public function getThumbnail($options = ['class' => 'thumbnail pull-left', 'style' => 'width: 240px'])
